@@ -1,0 +1,41 @@
+{
+  "name": "rollup-plugin-preserve-shebang",
+  "version": "0.1.0",
+  "description": "Automatically preserve a shebang in your entry file.",
+  "main": "dist/index.js",
+  "module": "index.js",
+  "scripts": {
+    "prepare": "babel index.js -d dist"
+  },
+  "eslintConfig": {
+    "extends": "eslint-config-developit"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "loose": true,
+          "node": 4
+        }
+      ]
+    ]
+  },
+  "keywords": [
+    "rollup",
+    "plugin",
+    "shebang"
+  ],
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "author": "Jason Miller <jason@developit.ca> (http://jasonformat.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.13.1",
+    "eslint-config-developit": "^1.1.1"
+  }
+}
