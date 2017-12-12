@@ -32,6 +32,7 @@
     "index.js",
     "dist"
   ],
+  "repository": "developit/rollup-plugin-preserve-shebang",
   "author": "Jason Miller <jason@developit.ca> (http://jasonformat.com)",
   "license": "MIT",
   "devDependencies": {
