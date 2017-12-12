@@ -12,6 +12,7 @@ export default function shebangPlugin({ shebang, entry }={}) {
 	processEntry(entry);
 
 	return {
+		name: 'preserve-shebang',
 		options(options) {
 			if (!entry) {
 				entry = options.input;
