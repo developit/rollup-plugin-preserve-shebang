@@ -5,7 +5,9 @@
   "main": "dist/index.js",
   "module": "index.js",
   "scripts": {
-    "prepare": "babel index.js -d dist"
+    "prepare": "babel index.js -d dist",
+    "test": "eslint index.js",
+    "release": "npm run -s prepare && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "eslintConfig": {
     "extends": "eslint-config-developit"
