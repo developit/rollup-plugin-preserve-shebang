@@ -1,7 +1,5 @@
 # rollup-plugin-preserve-shebang
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/developit/rollup-plugin-preserve-shebang.svg)](https://greenkeeper.io/)
-
 Automatically preserve a shebang in your entry file.
 
 If you're building CLI's with Rollup, this will fix your npm `bin` being broken :)
