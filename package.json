@@ -39,5 +39,8 @@
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.13.1",
     "eslint-config-developit": "^1.1.1"
+  },
+  "dependencies": {
+    "magic-string": "^0.22.4"
   }
 }
