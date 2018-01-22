@@ -25,13 +25,10 @@ export default function shebangPlugin({ shebang, entry }={}) {
 
 			let str = new MagicString(code);
 			str.prepend(shebang+'\n');
-			let result = {
-				code: str.toString()
+			return {
+				code: str.toString(),
+				map: sourceMap===false ? null : str.generateMap({ hires: true })
 			};
-			if (sourceMap!==false) {
-				result.map = str.generateMap({ hires: true });
-			}
-			return result;
 		}
 	};
 }
