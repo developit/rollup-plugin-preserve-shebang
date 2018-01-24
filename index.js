@@ -20,14 +20,14 @@ export default function shebangPlugin({ shebang, entry }={}) {
 			}
 			return options;
 		},
-		transformBundle(code, { format, sourceMap }) {
+		transformBundle(code, { format, sourcemap }) {
 			if (!shebang) return;
 
 			let str = new MagicString(code);
 			str.prepend(shebang+'\n');
 			return {
 				code: str.toString(),
-				map: sourceMap===false ? null : str.generateMap({ hires: true })
+				map: sourcemap ? str.generateMap({ hires: true }) : undefined
 			};
 		}
 	};
