@@ -42,6 +42,6 @@
     "eslint-config-developit": "^1.1.1"
   },
   "dependencies": {
-    "magic-string": "^0.22.4"
+    "magic-string": "^0.23.0"
   }
 }
