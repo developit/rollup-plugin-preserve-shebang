@@ -1,18 +1,18 @@
-import MagicString from "magic-string";
-import fs from "fs";
+import MagicString from 'magic-string';
+import fs from 'fs';
 
-export default function shebangPlugin({ shebang, entry } = {}) {
+export default function shebangPlugin({ shebang, entry }={}) {
 	function processEntry(entry) {
 		if (entry) {
-			let contents = fs.readFileSync(entry, "utf8");
+			let contents = fs.readFileSync(entry, 'utf8');
 			let matches = contents.match(/^\s*(#!.*)/);
-			shebang = shebang || (matches && matches[1]) || false;
+			shebang = shebang || matches && matches[1] || false;
 		}
 	}
 	processEntry(entry);
 
 	return {
-		name: "preserve-shebang",
+		name: 'preserve-shebang',
 		options(options) {
 			if (!entry) {
 				entry = options.input;
@@ -24,7 +24,7 @@ export default function shebangPlugin({ shebang, entry } = {}) {
 			if (!shebang) return;
 
 			let str = new MagicString(code);
-			str.prepend(shebang + "\n");
+			str.prepend(shebang+'\n');
 			return {
 				code: str.toString(),
 				map: sourcemap ? str.generateMap({ hires: true }) : undefined
