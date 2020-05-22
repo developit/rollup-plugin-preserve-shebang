@@ -33,7 +33,7 @@
     "cjyes": "^0.3.1",
     "eslint": "^7.0.0",
     "eslint-config-developit": "^1.2.0",
-    "rollup": "^2.10.5"
+    "rollup": "^2.10.7"
   },
   "dependencies": {
     "magic-string": "^0.25.7"
