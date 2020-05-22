@@ -1,33 +1,30 @@
 import MagicString from 'magic-string';
-import fs from 'fs';
 
-export default function shebangPlugin({ shebang, entry }={}) {
-	function processEntry(entry) {
-		if (entry) {
-			let contents = fs.readFileSync(entry, 'utf8');
-			let matches = contents.match(/^\s*(#!.*)/);
-			shebang = shebang || matches && matches[1] || false;
-		}
-	}
-	processEntry(entry);
+/**
+ * @param {object} [options]
+ * @param {string} [options.shebang] A custom shebang/hashbang to use in place of the detected one.
+ * @returns {import('rollup').Plugin}
+ */
+function shebangPlugin(options = {}) {
+	const shebangs = new Map();
 
 	return {
 		name: 'preserve-shebang',
-		options(options) {
-			if (!entry) {
-				entry = options.input;
-				processEntry(entry);
-			}
-			return options;
+		transform(code, mod) {
+			let shebang;
+			code = code.replace(/^#![^\n]*/, match => ((shebang = match), ''));
+			if (!shebang) return null;
+			shebangs.set(mod, shebang);
+			return { code, map: null };
 		},
-		renderChunk(code, { format, sourcemap }) {
-			if (!shebang) return;
-
-			let str = new MagicString(code);
-			str.prepend(shebang+'\n');
+		renderChunk(code, chunk, { sourcemap }) {
+			let shebang = shebangs.get(chunk.facadeModuleId);
+			if (!shebang) return null;
+			const s = new MagicString(code);
+			s.prepend(`${options.shebang || shebang}\n`);
 			return {
-				code: str.toString(),
-				map: sourcemap ? str.generateMap({ hires: true }) : undefined
+				code: s.toString(),
+				map: sourcemap ? s.generateMap({ hires: true }) : null
 			};
 		}
 	};
