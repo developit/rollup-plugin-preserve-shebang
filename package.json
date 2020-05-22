@@ -2,46 +2,40 @@
   "name": "rollup-plugin-preserve-shebang",
   "version": "0.1.6",
   "description": "Automatically preserve a shebang in your entry file.",
-  "main": "dist/index.js",
-  "module": "index.js",
+  "main": "index.js",
+  "module": "index.mjs",
+  "exports": {
+    "import": "index.mjs",
+    "default": "index.js"
+  },
+  "files": [
+    "index.mjs",
+    "index.js"
+  ],
   "scripts": {
-    "prepare": "babel index.js -d dist",
-    "test": "eslint index.js",
+    "prepare": "cjyes",
+    "test": "eslint index.mjs",
     "release": "npm run -s prepare && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "eslintConfig": {
-    "extends": "eslint-config-developit"
-  },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "loose": true,
-          "node": 4
-        }
-      ]
-    ]
+    "extends": "developit"
   },
   "keywords": [
     "rollup",
     "plugin",
-    "shebang"
-  ],
-  "files": [
-    "index.js",
-    "dist"
+    "shebang",
+    "hashbang"
   ],
   "repository": "developit/rollup-plugin-preserve-shebang",
   "author": "Jason Miller <jason@developit.ca> (http://jasonformat.com)",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.13.1",
-    "eslint-config-developit": "^1.1.1"
+    "cjyes": "^0.3.1",
+    "eslint": "^7.0.0",
+    "eslint-config-developit": "^1.2.0",
+    "rollup": "^2.10.5"
   },
   "dependencies": {
-    "magic-string": "^0.22.4"
+    "magic-string": "^0.25.7"
   }
 }

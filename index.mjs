@@ -1,11 +1,12 @@
 import MagicString from 'magic-string';
 
 /**
+ * A rollup plugin that preserves shebang/hashbang prefixes in your entry modules.
  * @param {object} [options]
  * @param {string} [options.shebang] A custom shebang/hashbang to use in place of the detected one.
  * @returns {import('rollup').Plugin}
  */
-function shebangPlugin(options = {}) {
+export default function shebangPlugin(options = {}) {
 	const shebangs = new Map();
 
 	return {
