@@ -6,7 +6,7 @@ export default function shebangPlugin({ shebang, entry }={}) {
 		if (entry) {
 			let contents = fs.readFileSync(entry, 'utf8');
 			let matches = contents.match(/^\s*(#!.*)/);
-			shebang = matches && matches[1] || false;
+			shebang = shebang || matches && matches[1] || false;
 		}
 	}
 	processEntry(entry);
