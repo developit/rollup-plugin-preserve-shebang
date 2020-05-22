@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-preserve-shebang",
-  "version": "0.1.6",
+  "version": "1.0.0",
   "description": "Automatically preserve a shebang in your entry file.",
   "main": "index.js",
   "module": "index.mjs",
