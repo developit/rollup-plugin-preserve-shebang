@@ -5,8 +5,8 @@
   "main": "index.js",
   "module": "index.mjs",
   "exports": {
-    "import": "index.mjs",
-    "default": "index.js"
+    "import": "./index.mjs",
+    "default": "./index.js"
   },
   "files": [
     "index.mjs",
