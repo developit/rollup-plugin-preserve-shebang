@@ -4,13 +4,15 @@
   "description": "Automatically preserve a shebang in your entry file.",
   "main": "index.js",
   "module": "index.mjs",
+  "types": "index.d.ts",
   "exports": {
     "import": "./index.mjs",
     "default": "./index.js"
   },
   "files": [
     "index.mjs",
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
     "prepare": "cjyes",
