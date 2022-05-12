@@ -19,7 +19,9 @@ export default function shebangPlugin(options = {}) {
 			return { code, map: null };
 		},
 		renderChunk(code, chunk, { sourcemap }) {
-			let shebang = shebangs.get(chunk.facadeModuleId);
+			// ids ending with ?commonjs-entry are created by rollup-plugin-commonjs
+			let modId = chunk.facadeModuleId && chunk.facadeModuleId.replace(/\?commonjs-entry$/, "");
+			let shebang = shebangs.get(modId);
 			if (!shebang) return null;
 			const s = new MagicString(code);
 			s.prepend(`${options.shebang || shebang}\n`);
