@@ -51,7 +51,10 @@ describe('shebangPlugin: cjs', () => {
 		const bundle = await getRollUpBundle(inputFilePath);
 		const generatedCode = await getGeneratedContent(bundle, format);
 
+		const shebangInstances = generatedCode.split('\n').filter(line => line.includes(nodeShebang));
+
 		expect(generatedCode.split('\n')[0]).toEqual(nodeShebang);
+		expect(shebangInstances.length).toBe(3);
 		expect(generatedCode).toMatchSnapshot();
 	});
 
