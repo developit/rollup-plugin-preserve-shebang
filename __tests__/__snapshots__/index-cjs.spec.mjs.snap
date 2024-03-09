@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shebangPlugin: cjs preseves existing shebang after successful rollup bundle 1`] = `
+"#!/usr/bin/env node
+'use strict';
+
+// eslint-disable-next-line no-console
+console.log('Hello, world!');
+"
+`;
+
+exports[`shebangPlugin: cjs replaces an existing shebang with a custom shebang 1`] = `
+"#!/path/to/custom/interpreter
+'use strict';
+
+// eslint-disable-next-line no-console
+console.log('Hello, world!');
+"
+`;
+
+exports[`shebangPlugin: cjs returns unmodified files when no shebang is found 1`] = `
+"'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+/**
+ * Get a unicorn emoji.
+ * @returns string
+ */
+function getUnicornEmoji() {
+	return '🦄';
+}
+
+exports.getUnicornEmoji = getUnicornEmoji;
+"
+`;
+
+exports[`shebangPlugin: cjs should preserve shebang in files without an EOF character  1`] = `
+"#!/usr/bin/env node
+'use strict';
+
+// eslint-disable-next-line no-console
+for (let i = 0; i < 10; i++) { console.log('🦄');}
+"
+`;
+
+exports[`shebangPlugin: cjs should retain comments defined after a shebang 1`] = `
+"#!/usr/bin/env node // <-- this thing is a shebang. :)
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+/**
+ * Get a shebang to use in node CLIs. Defaults to #!/usr/bin/env node
+ * @returns string
+ */
+function getNodeSheBang() {
+	return '#!/usr/bin/env node';
+}
+
+exports.getNodeSheBang = getNodeSheBang;
+"
+`;
+
+exports[`shebangPlugin: cjs should retain shebangs defined after some whitespace (and remove the leading whitespace) 1`] = `
+"#!/usr/bin/env node
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+/**
+ * Get a shebang to use in node CLIs. Defaults to #!/usr/bin/env node
+ * @returns string
+ */
+function getNodeSheBang() {
+	return '#!/usr/bin/env node';
+}
+
+exports.getNodeSheBang = getNodeSheBang;
+"
+`;
+
+exports[`shebangPlugin: cjs should retain shebangs defined elsewhere in a file 1`] = `
+"'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+/**
+ * Get a shebang to use in node CLIs. Defaults to #!/usr/bin/env node
+ * @returns string
+ */
+function getNodeSheBang() {
+	return '#!/usr/bin/env node';
+}
+
+exports.getNodeSheBang = getNodeSheBang;
+"
+`;
