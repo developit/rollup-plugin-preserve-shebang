@@ -22,10 +22,7 @@ export default {
 
 ```js
 shebang({
-    // Override the entry. By default, uses `input` from config:
-    entry: path.resolve(process.cwd(), 'src/foo.js'),
-
-    // You can also set it manually if you want, which will always prepend it:
+    // Set the shebang manually to override the exising shebang:
     shebang: '#!/usr/bin/env node'
 })
 ```
