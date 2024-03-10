@@ -1,4 +1,4 @@
-name: code-quality
+name: ci
 on:
   pull_request:
     types:
