@@ -1,5 +1,7 @@
 # rollup-plugin-preserve-shebang
 
+[![CI](https://github.com/radiovisual/rollup-plugin-preserve-shebang/actions/workflows/main.yaml/badge.svg)](https://github.com/radiovisual/rollup-plugin-preserve-shebang/actions/workflows/main.yaml)
+
 > Automatically preserve a shebang in your entry file.
 
 If you're building CLIs with Rollup, this will fix your npm `bin` from being broken. 🥳
