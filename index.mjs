@@ -13,7 +13,10 @@ export default function shebangPlugin(options = {}) {
 		name: 'preserve-shebang',
 		transform(code, mod) {
 			let shebang;
-			code = code.replace(/^#![^\n]*/, match => ((shebang = match), ''));
+			code = code.replace(/^\s*#![^\n]*/, match => {
+				shebang = match.trim();
+				return '';
+			});
 			if (!shebang) return null;
 			shebangs.set(mod, shebang);
 			return { code, map: null };

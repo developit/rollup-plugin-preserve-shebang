@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shebangPlugin: esm preseves existing shebang after successful rollup bundle 1`] = `
+"#!/usr/bin/env node
+// eslint-disable-next-line no-console
+console.log('Hello, world!');
+"
+`;
+
+exports[`shebangPlugin: esm replaces an existing shebang with a custom shebang 1`] = `
+"#!/path/to/custom/interpreter
+// eslint-disable-next-line no-console
+console.log('Hello, world!');
+"
+`;
+
+exports[`shebangPlugin: esm returns unmodified files when no shebang is found 1`] = `
+"/**
+ * Get a unicorn emoji.
+ * @returns string
+ */
+function getUnicornEmoji() {
+	return '🦄';
+}
+
+export { getUnicornEmoji };
+"
+`;
+
+exports[`shebangPlugin: esm should preserve shebang in files without an EOF character  1`] = `
+"#!/usr/bin/env node
+// eslint-disable-next-line no-console
+for (let i = 0; i < 10; i++) { console.log('🦄');}
+"
+`;
+
+exports[`shebangPlugin: esm should retain comments defined after a shebang 1`] = `
+"#!/usr/bin/env node // <-- this thing is a shebang. :)
+/**
+ * Get a shebang to use in node CLIs. Defaults to #!/usr/bin/env node
+ * @returns string
+ */
+function getNodeSheBang() {
+	return '#!/usr/bin/env node';
+}
+
+export { getNodeSheBang };
+"
+`;
+
+exports[`shebangPlugin: esm should retain shebangs defined after some whitespace (and remove the leading whitespace) 1`] = `
+"#!/usr/bin/env node
+/**
+ * Get a shebang to use in node CLIs. Defaults to #!/usr/bin/env node
+ * @returns string
+ */
+function getNodeSheBang() {
+	return '#!/usr/bin/env node';
+}
+
+export { getNodeSheBang };
+"
+`;
+
+exports[`shebangPlugin: esm should retain shebangs defined elsewhere in a file 1`] = `
+"/**
+ * Get a shebang to use in node CLIs. Defaults to #!/usr/bin/env node
+ * @returns string
+ */
+function getNodeSheBang() {
+	return '#!/usr/bin/env node';
+}
+
+export { getNodeSheBang };
+"
+`;
