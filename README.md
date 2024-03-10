@@ -2,11 +2,11 @@
 
 > Automatically preserve a shebang in your entry file.
 
-If you're building CLI's with Rollup, this will fix your npm `bin` from being broken. 🥳
+If you're building CLIs with Rollup, this will fix your npm `bin` from being broken. 🥳
 
 ## How it works
 
-Since shebangs are not valid Javascript syntax (they are instructions for the operating system's command-line interpreter), they need to be removed before rollup can continue bundling. This plugin works by first removing the shebang defined in your entry file, then letting rollup bundle your project normally, and then re-inserting the shebang after the build is complete. Thus, *preserving* your shebang.
+Since shebangs are not valid JavaScript syntax (they are instructions for the operating system's command-line interpreter) and can cause issues if interpreted as JavaScript code by the bundler, so they need to be removed before Rollup can continue bundling. This plugin works by first removing the shebang defined in your entry file, then letting Rollup bundle your project normally, and then re-inserting the shebang after the build is complete, thus *preserving* your shebang.
 
 ## Installation
 
