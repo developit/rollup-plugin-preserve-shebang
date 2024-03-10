@@ -24,7 +24,7 @@ yarn add -D rollup-plugin-preserve-shebang
 
 ## Usage
 
-Add the `shebang` function to the `plugins` array inside your to rollup configuration:
+Add the `shebang` function to the `plugins` array inside your rollup configuration:
 
 ```js
 import shebang from 'rollup-plugin-preserve-shebang';
